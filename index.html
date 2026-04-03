@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wieża Maga — Oficjalna strona gry</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-panel">
+      <div class="intro-sigil">♜</div>
+      <p class="intro-kicker">Wieża Maga • Wejście do rytuału</p>
+      <h2>Przekrocz próg wieży</h2>
+
+      <div class="intro-loader" aria-hidden="true">
+        <div class="intro-loader__label">
+          <span>Rytuał trwa</span>
+          <span>Otwieranie bramy</span>
+        </div>
+        <div class="intro-loader__track">
+          <div class="intro-loader__bar"></div>
+        </div>
+      </div>
+
+      <div class="intro-actions">
+        <button class="btn btn--primary" id="enterTowerBtn" type="button">Wejdź do Wieży</button>
+        <button class="btn btn--ghost" id="enterSilentBtn" type="button">Wejdź bez muzyki</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#start">
+        <span class="brand__sigil">♜</span>
+        <span>Wieża Maga</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#wazne">Co ważne</a>
+        <a href="#info">Info o grze</a>
+        <a href="#screeny">Screeny</a>
+        <a href="#wishlist">Wishlist</a>
+      </nav>
+
+      <div class="btns">
+        <a class="btn btn--ghost" href="#trailer">Trailer</a>
+        <a class="btn btn--primary" href="#wishlist">Wishlist na Steam</a>
+        <button class="btn btn--ghost music-toggle" id="musicToggle" aria-label="Wycisz muzykę">🔊</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="start">
+    <section class="hero container">
+      <div class="hero__frame">
+        <div class="hero__mist"></div>
+        <div class="hero__orb"></div>
+        <div class="hero__runes"></div>
+
+        <div class="hero__content reveal">
+          <span class="eyebrow">Dark fantasy • Time loop • Medieval mystery</span>
+          <h1>WEJDŹ DO WIEŻY. ZMIEŃ RYTUAŁ.</h1>
+          <p>
+            Narracyjna przygodówka 3D, w której jako uczeń maga budzisz się w pętli czasu,
+            odkrywasz sekrety wieży i decydujesz, czy uratujesz mistrza, czy zatrzymasz demona raz na zawsze.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#wishlist">Dodaj do wishlisty</a>
+            <a class="btn btn--ghost" href="#info">Poznaj świat gry</a>
+          </div>
+
+          <div class="hero__meta">
+            <span class="pill">Premiera: WKRÓTCE</span>
+            <span class="pill">PC / Steam</span>
+            <span class="pill">Singleplayer</span>
+            <span class="pill">Mroczny klimat</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wazne">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">Co ważne</span>
+            <h2>Najmocniejsze rzeczy w tej grze</h2>
+          </div>
+        </div>
+
+        <div class="grid grid--highlights">
+          <article class="card highlight reveal">
+            <div>
+              <div class="highlight__icon">⏳</div>
+              <h3>Pętla czasu</h3>
+              <p>Każda rozgrywka trwa około 5–7 minut. Katastrofa resetuje świat, ale nie twoją wiedzę. Każda porażka realnie pcha cię do przodu.</p>
+            </div>
+          </article>
+
+          <article class="card highlight reveal">
+            <div>
+              <div class="highlight__icon">📖</div>
+              <h3>Progres przez wiedzę</h3>
+              <p>Nie farmisz expa jak bot. Odkrywasz notatki, symbole, rytuały i zachowania NPC, a Grimoire zmienia kolejne pętle.</p>
+            </div>
+          </article>
+
+          <article class="card highlight reveal">
+            <div>
+              <div class="highlight__icon">🕯️</div>
+              <h3>Dark fantasy vibe</h3>
+              <p>Cienie, zimne błękity, fiolety, świece, runy i melancholia. Totalnie klimat na „jeszcze jedna pętla i idę spać”. Spoiler: nie pójdziesz.</p>
+            </div>
+          </article>
+
+          <article class="card highlight reveal">
+            <div>
+              <div class="highlight__icon">🧪</div>
+              <h3>Manipuluj rytuałem</h3>
+              <p>Podmieniaj mikstury, zmieniaj składniki, odkrywaj nowe stany przedmiotów i patrz, jak drobna decyzja rozwala całą sekwencję wydarzeń.</p>
+            </div>
+          </article>
+
+          <article class="card highlight reveal">
+            <div>
+              <div class="highlight__icon">👁️</div>
+              <h3>Obserwuj i przewiduj</h3>
+              <p>Akolici, mistrz i alchemik żyją własnym rytmem. Im więcej wiesz, tym lepiej trafiasz w idealny moment, żeby zmienić los wieży.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="info">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">Info o grze</span>
+            <h2>O czym jest Wieża Maga</h2>
+          </div>
+          <p>
+            Mroczna przygodówka narracyjna osadzona w świecie fantasy. Jako Akir, uczeń maga, próbujesz odkryć prawdę o nieudanym rytuale i zatrzymać demona Irrava.
+          </p>
+        </div>
+
+        <div class="info-layout">
+          <article class="card info-card reveal">
+            <h3>Pitch</h3>
+            <p>
+              Jako uczeń maga uwięziony w pętli czasu odkrywasz tajemnice wieży swojego mistrza,
+              manipulujesz wydarzeniami i podejmujesz decyzję: uratować nauczyciela czy zatrzymać demona.
+            </p>
+
+            <ul>
+              <li>Gatunek: narracyjna gra przygodowa / eksploracja / fantasy / time loop</li>
+              <li>Świat gry: wieża mistrza Malgara — biblioteka, laboratorium i sala rytuału</li>
+              <li>Bohater: Akir, jedyny, który pamięta poprzednie pętle</li>
+              <li>Stawka: uratować mistrza albo poświęcić go, by ocalić świat</li>
+            </ul>
+          </article>
+
+          <div class="info-stack">
+            <article class="card info-card reveal">
+              <h3>Kluczowe mechaniki</h3>
+              <ul>
+                <li>Eksploracja wieży i odblokowywanie nowych interakcji</li>
+                <li>Zagadki runiczne i logiczne</li>
+                <li>Grimoire jako pamięć między pętlami</li>
+                <li>Obserwacja rutyn NPC i ingerowanie w wydarzenia</li>
+              </ul>
+            </article>
+
+            <article class="card info-card reveal">
+              <h3>Platforma</h3>
+              <p>PC / Steam (demo planowane jako główna wersja na Windows, Linux i macOS).</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="card info-card reveal" style="margin-top:18px;">
+          <h3>Przebieg historii</h3>
+          <div class="timeline">
+            <div class="timeline__item">
+              <strong>Akt I — Budzenie się w pętli</strong>
+              <p>Akir budzi się po nieudanym rytuale. Eksplozja resetuje czas, ale jego wspomnienia zostają.</p>
+            </div>
+            <div class="timeline__item">
+              <strong>Akt II — Poszukiwanie prawdy</strong>
+              <p>Eksplorujesz wieżę, odkrywasz wpływ demona Irrava, poznajesz akolitów i szukasz sposobu na ochronny krąg runiczny.</p>
+            </div>
+            <div class="timeline__item">
+              <strong>Akt III — Rytuał i decyzja</strong>
+              <p>Z pomocą alchemika tworzysz miksturę i stajesz przed wyborem: ratować mistrza czy zniszczyć go razem z demonem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="screeny">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">Screeny i klimat</span>
+            <h2>Strona ma sprzedawać atmosferę</h2>
+          </div>
+          
+        </div>
+
+        <div class="gallery">
+          <div class="gallery__main reveal">
+            <span class="gallery__label">Główny screenshot / key art</span>
+          </div>
+
+          <div class="gallery__side">
+
+            <div class="thumbs">
+              <div class="thumb reveal"><span>Biblioteka</span></div>
+              <div class="thumb reveal"><span>Laboratorium</span></div>
+              <div class="thumb reveal"><span>Sala rytuału</span></div>
+              <div class="thumb reveal"><span>Obecność Irrava</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trailer">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">Trailer</span>
+          </div>
+        </div>
+
+        <div class="card reveal" style="padding:18px; border-radius:32px;">
+          <div style="position:relative; width:100%; padding-top:56.25%; border-radius:24px; overflow:hidden; background:linear-gradient(180deg, rgba(8,8,12,0.68), rgba(8,8,12,0.96)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; border:1px solid rgba(255,255,255,0.08); display:block;">
+            <div style="position:absolute; inset:0; display:grid; place-items:center;">
+              <button class="btn btn--primary" id="fakePlay">▶ Odtwórz trailer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="specs">
+          <article class="card spec reveal">
+            <div class="spec__value">5–7</div>
+            <h3>Minut na pętlę</h3>
+            <p>Każda próba jest krótka, gęsta i daje nowe informacje.</p>
+          </article>
+
+          <article class="card spec reveal">
+            <div class="spec__value">3</div>
+            <h3>Główne piętra</h3>
+            <p>Biblioteka, laboratorium i sala rytuału.</p>
+          </article>
+
+          <article class="card spec reveal">
+            <div class="spec__value">2+</div>
+            <h3>Zakończenia demo</h3>
+            <p>Los mistrza i demona zależy od twoich decyzji.</p>
+          </article>
+
+          <article class="card spec reveal">
+            <div class="spec__value">100%</div>
+            <h3>Klimat</h3>
+            <p>Mrok, runy, szepty i zero zbędnego cringe’u.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wishlist">
+      <div class="container">
+        <div class="cta reveal">
+          <div>
+            <span class="eyebrow">Premiera wkrótce</span>
+            <h3>Dodaj Wieżę Maga do wishlisty na Steam</h3>
+            <p>
+              Najlepszy moment na kliknięcie wishlist to dosłownie teraz. Nie po obiedzie, nie jutro, nie „kiedyś”. Teraz.
+            </p>
+          </div>
+
+          <div class="btns">
+            <a class="btn btn--primary" href="https://store.steampowered.com/" target="_blank" rel="noreferrer">Wishlist na Steam</a>
+            <a class="btn btn--ghost" href="#start">Wróć na górę</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© Wieża Maga — 2026</p>
+    </div>
+  </footer>
+
+  <audio id="bgMusic" loop autoplay preload="auto" playsinline>
+    <source src="music3.mp3" type="audio/mpeg" />
+  </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
