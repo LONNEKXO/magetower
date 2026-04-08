@@ -25,6 +25,8 @@ window.addEventListener('resize', revealOnScroll);
 document.addEventListener('DOMContentLoaded', revealOnScroll);
 setTimeout(revealOnScroll, 120);
 
+/* ===== MUSIC / INTRO ===== */
+
 const music = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
 const introOverlay = document.getElementById('introOverlay');
@@ -158,6 +160,8 @@ if (musicToggle) {
   });
 }
 
+/* ===== TRAILER ===== */
+
 const fakePlay = document.getElementById('fakePlay');
 
 if (fakePlay) {
@@ -181,6 +185,8 @@ if (fakePlay) {
     }
   });
 }
+
+/* ===== SMOOTH SCROLL ===== */
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
@@ -304,48 +310,53 @@ document.addEventListener('keydown', (event) => {
     showPrevImage();
   }
 });
+
 /* ===== PREMIUM SCROLL INDICATOR ===== */
 
 const scrollIndicator = document.querySelector('.scroll-indicator');
 const scrollIndicatorBar = document.getElementById('scrollIndicatorBar');
 const scrollIndicatorGlow = document.getElementById('scrollIndicatorGlow');
-const themedSections = Array.from(document.querySelectorAll('[data-scroll-theme]'));
+const scrollIndicatorLabel = document.getElementById('scrollIndicatorLabel');
+const themedSections = Array.from(document.querySelectorAll('[data-scroll-theme]')).filter((section) => section.closest('[data-scroll-theme]') === section);
 
 const scrollThemes = {
   violet: {
-    accent1: 'rgba(131,96,255,0.95)',
-    accent2: 'rgba(177,140,255,0.75)',
-    glow: 'rgba(131,96,255,0.35)',
+    accent1: '#60437A',
+    accent2: '#C79A3B',
+    glow: 'rgba(96, 67, 122, 0.35)',
   },
   gold: {
-    accent1: 'rgba(227,149,243,0.95)',
-    accent2: 'rgba(255,214,143,0.72)',
-    glow: 'rgba(227,149,243,0.34)',
+    accent1: '#C79A3B',
+    accent2: '#EAE0D5',
+    glow: 'rgba(199, 154, 59, 0.30)',
   },
   blue: {
-    accent1: 'rgba(94,166,255,0.95)',
-    accent2: 'rgba(128,209,255,0.72)',
-    glow: 'rgba(94,166,255,0.34)',
+    accent1: '#005142',
+    accent2: '#EAE0D5',
+    glow: 'rgba(0, 81, 66, 0.30)',
   },
   pink: {
-    accent1: 'rgba(255,107,138,0.95)',
-    accent2: 'rgba(255,164,196,0.76)',
-    glow: 'rgba(255,107,138,0.34)',
+    accent1: '#3C2A4D',
+    accent2: '#60437A',
+    glow: 'rgba(96, 67, 122, 0.28)',
   },
   red: {
-    accent1: 'rgba(255,92,122,0.95)',
-    accent2: 'rgba(255,140,110,0.72)',
-    glow: 'rgba(255,92,122,0.34)',
+    accent1: '#C79A3B',
+    accent2: '#60437A',
+    glow: 'rgba(199, 154, 59, 0.28)',
   },
 };
 
 let scrollIndicatorTimeout = null;
+let activeScrollSection = null;
 
-const updateScrollIndicatorTheme = () => {
-  if (!themedSections.length) return;
+const getActiveScrollSection = () => {
+  if (!themedSections.length) return null;
 
   const viewportMiddle = window.innerHeight * 0.42;
-  let activeSection = themedSections[0];
+  let activeSection = null;
+  let fallbackSection = null;
+  let fallbackDistance = Infinity;
 
   themedSections.forEach((section) => {
     const rect = section.getBoundingClientRect();
@@ -353,7 +364,26 @@ const updateScrollIndicatorTheme = () => {
     if (rect.top <= viewportMiddle && rect.bottom >= viewportMiddle) {
       activeSection = section;
     }
+
+    if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
+      const sectionCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(sectionCenter - viewportMiddle);
+
+      if (distance < fallbackDistance) {
+        fallbackDistance = distance;
+        fallbackSection = section;
+      }
+    }
   });
+
+  return activeSection || fallbackSection || themedSections[0];
+};
+
+const updateScrollIndicatorTheme = () => {
+  const activeSection = getActiveScrollSection();
+  if (!activeSection) return;
+
+  activeScrollSection = activeSection;
 
   const themeName = activeSection.dataset.scrollTheme || 'violet';
   const theme = scrollThemes[themeName] || scrollThemes.violet;
@@ -361,6 +391,11 @@ const updateScrollIndicatorTheme = () => {
   document.documentElement.style.setProperty('--scroll-accent-1', theme.accent1);
   document.documentElement.style.setProperty('--scroll-accent-2', theme.accent2);
   document.documentElement.style.setProperty('--scroll-glow', theme.glow);
+
+  if (scrollIndicatorLabel) {
+    const label = activeSection.dataset.scrollLabel || activeSection.querySelector('[data-scroll-label]')?.dataset.scrollLabel || 'Sekcja';
+    scrollIndicatorLabel.textContent = label;
+  }
 };
 
 const updateScrollIndicatorProgress = () => {
@@ -376,6 +411,15 @@ const updateScrollIndicatorProgress = () => {
 
   const glowY = Math.max(0, barHeight - 24);
   scrollIndicatorGlow.style.transform = `translate(-50%, ${glowY}px)`;
+
+  if (scrollIndicatorLabel) {
+    const labelY = Math.min(
+      Math.max(0, glowY - 8),
+      Math.max(0, indicatorHeight - 46)
+    );
+
+    scrollIndicatorLabel.style.transform = `translateY(${labelY}px)`;
+  }
 
   scrollIndicator.classList.add('is-scrolling');
 
