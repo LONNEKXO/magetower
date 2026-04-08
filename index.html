@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wieża Maga — Oficjalna strona gry</title>
-    <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="intro-overlay" id="introOverlay">
@@ -208,21 +208,70 @@
             <span class="eyebrow">Screeny i klimat</span>
             <h2>Strona ma sprzedawać atmosferę</h2>
           </div>
-          
         </div>
 
         <div class="gallery">
-          <div class="gallery__main reveal">
+          <button
+            class="gallery__main reveal gallery-item"
+            type="button"
+            data-index="0"
+            data-image="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80"
+            data-title="Główny screenshot / key art"
+            data-description="Centralny kadr budujący cały mood gry — mrok, mistyka i vibe typu ‘jeszcze tylko jedna pętla’."
+            aria-label="Otwórz screenshot: Główny screenshot / key art"
+          >
             <span class="gallery__label">Główny screenshot / key art</span>
-          </div>
+          </button>
 
           <div class="gallery__side">
-
             <div class="thumbs">
-              <div class="thumb reveal"><span>Biblioteka</span></div>
-              <div class="thumb reveal"><span>Laboratorium</span></div>
-              <div class="thumb reveal"><span>Sala rytuału</span></div>
-              <div class="thumb reveal"><span>Obecność Irrava</span></div>
+              <button
+                class="thumb reveal gallery-item"
+                type="button"
+                data-index="1"
+                data-image="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=80"
+                data-title="Biblioteka"
+                data-description="Zakurzona biblioteka pełna sekretów, ksiąg i wskazówek, które zostają w głowie nawet po resecie czasu."
+                aria-label="Otwórz screenshot: Biblioteka"
+              >
+                <span>Biblioteka</span>
+              </button>
+
+              <button
+                class="thumb reveal gallery-item"
+                type="button"
+                data-index="2"
+                data-image="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?auto=format&fit=crop&w=1400&q=80"
+                data-title="Laboratorium"
+                data-description="Tu eksperymenty robią się lekko cursed. Mikstury, składniki i decyzje, które potrafią wywrócić całą pętlę."
+                aria-label="Otwórz screenshot: Laboratorium"
+              >
+                <span>Laboratorium</span>
+              </button>
+
+              <button
+                class="thumb reveal gallery-item"
+                type="button"
+                data-index="3"
+                data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
+                data-title="Sala rytuału"
+                data-description="Serce katastrofy. Tu wszystko się zaczyna i tu możesz spróbować złamać przeznaczenie albo zrobić jeszcze większy chaos."
+                aria-label="Otwórz screenshot: Sala rytuału"
+              >
+                <span>Sala rytuału</span>
+              </button>
+
+              <button
+                class="thumb reveal gallery-item"
+                type="button"
+                data-index="4"
+                data-image="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=1400&q=80"
+                data-title="Obecność Irrava"
+                data-description="Nie widzisz go od razu. Ale czujesz, że coś bardzo nie powinno tu być. Classic demon behavior."
+                aria-label="Otwórz screenshot: Obecność Irrava"
+              >
+                <span>Obecność Irrava</span>
+              </button>
             </div>
           </div>
         </div>
@@ -303,10 +352,30 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
+
+    <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Zamknij podgląd">✕</button>
+
+      <button class="lightbox__arrow lightbox__arrow--left" id="lightboxPrev" type="button" aria-label="Poprzedni screen">←</button>
+
+      <div class="lightbox__content">
+        <img id="lightboxImage" src="" alt="" />
+        <div class="lightbox__meta">
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxCaption"></p>
+        </div>
+      </div>
+
+      <button class="lightbox__arrow lightbox__arrow--right" id="lightboxNext" type="button" aria-label="Następny screen">→</button>
+    </div>
+  </div>
+
   <audio id="bgMusic" loop autoplay preload="auto" playsinline>
     <source src="music3.mp3" type="audio/mpeg" />
   </audio>
 
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
