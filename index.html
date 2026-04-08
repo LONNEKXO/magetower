@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wieża Maga — Oficjalna strona gry</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-indicator__track"></div>
+    <div class="scroll-indicator__bar" id="scrollIndicatorBar"></div>
+    <div class="scroll-indicator__glow" id="scrollIndicatorGlow"></div>
+  </div>
   <div class="intro-overlay" id="introOverlay">
     <div class="intro-panel">
       <div class="intro-sigil">♜</div>
@@ -41,7 +48,8 @@
         <a href="#wazne">Co ważne</a>
         <a href="#info">Info o grze</a>
         <a href="#screeny">Screeny</a>
-        <a href="#wishlist">Wishlist</a>
+        <a href="#tworcy">Twórcy</a>
+        <!-- <a href="#wishlist">Wishlist</a> -->
       </nav>
 
       <div class="btns">
@@ -53,7 +61,7 @@
   </header>
 
   <main id="start">
-    <section class="hero container">
+    <section class="hero container" data-scroll-theme="violet">
       <div class="hero__frame">
         <div class="hero__mist"></div>
         <div class="hero__orb"></div>
@@ -82,7 +90,7 @@
       </div>
     </section>
 
-    <section class="section" id="wazne">
+    <section class="section" id="wazne" data-scroll-theme="gold">
       <div class="container">
         <div class="section__head reveal">
           <div>
@@ -96,7 +104,8 @@
             <div>
               <div class="highlight__icon">⏳</div>
               <h3>Pętla czasu</h3>
-              <p>Każda rozgrywka trwa około 5–7 minut. Katastrofa resetuje świat, ale nie twoją wiedzę. Każda porażka realnie pcha cię do przodu.</p>
+              <p>Każda rozgrywka trwa około 5–7 minut. Katastrofa resetuje świat, ale nie twoją wiedzę. Każda porażka
+                realnie pcha cię do przodu.</p>
             </div>
           </article>
 
@@ -104,7 +113,8 @@
             <div>
               <div class="highlight__icon">📖</div>
               <h3>Progres przez wiedzę</h3>
-              <p>Nie farmisz expa jak bot. Odkrywasz notatki, symbole, rytuały i zachowania NPC, a Grimoire zmienia kolejne pętle.</p>
+              <p>Nie farmisz expa jak bot. Odkrywasz notatki, symbole, rytuały i zachowania NPC, a Grimoire zmienia
+                kolejne pętle.</p>
             </div>
           </article>
 
@@ -112,7 +122,8 @@
             <div>
               <div class="highlight__icon">🕯️</div>
               <h3>Dark fantasy vibe</h3>
-              <p>Cienie, zimne błękity, fiolety, świece, runy i melancholia. Totalnie klimat na „jeszcze jedna pętla i idę spać”. Spoiler: nie pójdziesz.</p>
+              <p>Cienie, zimne błękity, fiolety, świece, runy i melancholia. Totalnie klimat na „jeszcze jedna pętla i
+                idę spać”. Spoiler: nie pójdziesz.</p>
             </div>
           </article>
 
@@ -120,7 +131,8 @@
             <div>
               <div class="highlight__icon">🧪</div>
               <h3>Manipuluj rytuałem</h3>
-              <p>Podmieniaj mikstury, zmieniaj składniki, odkrywaj nowe stany przedmiotów i patrz, jak drobna decyzja rozwala całą sekwencję wydarzeń.</p>
+              <p>Podmieniaj mikstury, zmieniaj składniki, odkrywaj nowe stany przedmiotów i patrz, jak drobna decyzja
+                rozwala całą sekwencję wydarzeń.</p>
             </div>
           </article>
 
@@ -128,14 +140,15 @@
             <div>
               <div class="highlight__icon">👁️</div>
               <h3>Obserwuj i przewiduj</h3>
-              <p>Akolici, mistrz i alchemik żyją własnym rytmem. Im więcej wiesz, tym lepiej trafiasz w idealny moment, żeby zmienić los wieży.</p>
+              <p>Akolici, mistrz i alchemik żyją własnym rytmem. Im więcej wiesz, tym lepiej trafiasz w idealny moment,
+                żeby zmienić los wieży.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="info">
+    <section class="section" id="info" data-scroll-theme="blue">
       <div class="container">
         <div class="section__head reveal">
           <div>
@@ -143,7 +156,8 @@
             <h2>O czym jest Wieża Maga</h2>
           </div>
           <p>
-            Mroczna przygodówka narracyjna osadzona w świecie fantasy. Jako Akir, uczeń maga, próbujesz odkryć prawdę o nieudanym rytuale i zatrzymać demona Irrava.
+            Mroczna przygodówka narracyjna osadzona w świecie fantasy. Jako Akir, uczeń maga, próbujesz odkryć prawdę o
+            nieudanym rytuale i zatrzymać demona Irrava.
           </p>
         </div>
 
@@ -190,18 +204,20 @@
             </div>
             <div class="timeline__item">
               <strong>Akt II — Poszukiwanie prawdy</strong>
-              <p>Eksplorujesz wieżę, odkrywasz wpływ demona Irrava, poznajesz akolitów i szukasz sposobu na ochronny krąg runiczny.</p>
+              <p>Eksplorujesz wieżę, odkrywasz wpływ demona Irrava, poznajesz akolitów i szukasz sposobu na ochronny
+                krąg runiczny.</p>
             </div>
             <div class="timeline__item">
               <strong>Akt III — Rytuał i decyzja</strong>
-              <p>Z pomocą alchemika tworzysz miksturę i stajesz przed wyborem: ratować mistrza czy zniszczyć go razem z demonem.</p>
+              <p>Z pomocą alchemika tworzysz miksturę i stajesz przed wyborem: ratować mistrza czy zniszczyć go razem z
+                demonem.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="screeny">
+    <section class="section" id="screeny" data-scroll-theme="pink">
       <div class="container">
         <div class="section__head reveal">
           <div>
@@ -211,65 +227,45 @@
         </div>
 
         <div class="gallery">
-          <button
-            class="gallery__main reveal gallery-item"
-            type="button"
-            data-index="0"
+          <button class="gallery__main reveal gallery-item" type="button" data-index="0"
             data-image="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80"
             data-title="Główny screenshot / key art"
             data-description="Centralny kadr budujący cały mood gry — mrok, mistyka i vibe typu ‘jeszcze tylko jedna pętla’."
-            aria-label="Otwórz screenshot: Główny screenshot / key art"
-          >
+            aria-label="Otwórz screenshot: Główny screenshot / key art">
             <span class="gallery__label">Główny screenshot / key art</span>
           </button>
 
           <div class="gallery__side">
             <div class="thumbs">
-              <button
-                class="thumb reveal gallery-item"
-                type="button"
-                data-index="1"
+              <button class="thumb reveal gallery-item" type="button" data-index="1"
                 data-image="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=80"
                 data-title="Biblioteka"
                 data-description="Zakurzona biblioteka pełna sekretów, ksiąg i wskazówek, które zostają w głowie nawet po resecie czasu."
-                aria-label="Otwórz screenshot: Biblioteka"
-              >
+                aria-label="Otwórz screenshot: Biblioteka">
                 <span>Biblioteka</span>
               </button>
 
-              <button
-                class="thumb reveal gallery-item"
-                type="button"
-                data-index="2"
+              <button class="thumb reveal gallery-item" type="button" data-index="2"
                 data-image="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?auto=format&fit=crop&w=1400&q=80"
                 data-title="Laboratorium"
                 data-description="Tu eksperymenty robią się lekko cursed. Mikstury, składniki i decyzje, które potrafią wywrócić całą pętlę."
-                aria-label="Otwórz screenshot: Laboratorium"
-              >
+                aria-label="Otwórz screenshot: Laboratorium">
                 <span>Laboratorium</span>
               </button>
 
-              <button
-                class="thumb reveal gallery-item"
-                type="button"
-                data-index="3"
+              <button class="thumb reveal gallery-item" type="button" data-index="3"
                 data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
                 data-title="Sala rytuału"
                 data-description="Serce katastrofy. Tu wszystko się zaczyna i tu możesz spróbować złamać przeznaczenie albo zrobić jeszcze większy chaos."
-                aria-label="Otwórz screenshot: Sala rytuału"
-              >
+                aria-label="Otwórz screenshot: Sala rytuału">
                 <span>Sala rytuału</span>
               </button>
 
-              <button
-                class="thumb reveal gallery-item"
-                type="button"
-                data-index="4"
+              <button class="thumb reveal gallery-item" type="button" data-index="4"
                 data-image="https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=1400&q=80"
                 data-title="Obecność Irrava"
                 data-description="Nie widzisz go od razu. Ale czujesz, że coś bardzo nie powinno tu być. Classic demon behavior."
-                aria-label="Otwórz screenshot: Obecność Irrava"
-              >
+                aria-label="Otwórz screenshot: Obecność Irrava">
                 <span>Obecność Irrava</span>
               </button>
             </div>
@@ -278,7 +274,7 @@
       </div>
     </section>
 
-    <section class="section" id="trailer">
+    <section class="section" id="trailer" data-scroll-theme="red">
       <div class="container">
         <div class="section__head reveal">
           <div>
@@ -287,11 +283,75 @@
         </div>
 
         <div class="card reveal" style="padding:18px; border-radius:32px;">
-          <div style="position:relative; width:100%; padding-top:56.25%; border-radius:24px; overflow:hidden; background:linear-gradient(180deg, rgba(8,8,12,0.68), rgba(8,8,12,0.96)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; border:1px solid rgba(255,255,255,0.08); display:block;">
+          <div
+            style="position:relative; width:100%; padding-top:56.25%; border-radius:24px; overflow:hidden; background:linear-gradient(180deg, rgba(8,8,12,0.68), rgba(8,8,12,0.96)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; border:1px solid rgba(255,255,255,0.08); display:block;">
             <div style="position:absolute; inset:0; display:grid; place-items:center;">
               <button class="btn btn--primary" id="fakePlay">▶ Odtwórz trailer</button>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section creators-section" id="tworcy" data-scroll-theme="violet">
+      <div class="container">
+        <div class="section__head reveal creators-section__head">
+          <div>
+            <span class="eyebrow">Twórcy gry</span>
+            <h2>Kto stoi za Wieżą Maga</h2>
+          </div>
+          <p>
+            Wieża Maga powstaje na styku technologii i oprawy wizualnej — dwóch filarów,
+            które razem budują jej atmosferę, rytm i tożsamość.
+          </p>
+        </div>
+
+        <div class="creators creators--premium">
+          <article class="creator-premium reveal">
+            <div class="creator-premium__glow"></div>
+            <div class="creator-premium__shine"></div>
+
+            <div class="creator-premium__header">
+              <div class="creator-premium__icon-wrap">
+                <div class="creator-premium__icon">⌨️</div>
+              </div>
+
+              <div class="creator-premium__heading">
+                <span class="creator-premium__role">Programowanie</span>
+                <h3>Dawid Bartanowicz</h3>
+                <!-- <p class="creator-premium__lead">Technical Architect of the Experience</p> -->
+              </div>
+            </div>
+
+            <p class="creator-premium__desc">
+              Odpowiada za techniczną stronę gry. Logikę rozgrywki, interakcje, systemy
+              oraz mechaniki pętli czasu. Dba o to, by każda kolejna próba dawała graczowi
+              realny progres, a świat Wieży Maga działał płynnie, spójnie i bez utraty klimatu.
+            </p>
+          </article>
+
+          <article class="creator-premium reveal">
+            <div class="creator-premium__glow"></div>
+            <div class="creator-premium__shine"></div>
+
+            <div class="creator-premium__header">
+              <div class="creator-premium__icon-wrap">
+                <div class="creator-premium__icon">🎨</div>
+              </div>
+
+              <div class="creator-premium__heading">
+                <span class="creator-premium__role">Grafika</span>
+                <h3>Beata Patzer</h3>
+                <!-- <p class="creator-premium__lead">Visual Identity & Atmosphere Design</p> -->
+              </div>
+            </div>
+
+            <p class="creator-premium__desc">
+              Odpowiada za oprawę wizualną gry. Estetykę, klimat, styl i nastrój świata.
+              To dzięki jej pracy Wieża Maga zyskuje charakterystyczny mroczny ton,
+              który wzmacnia poczucie tajemnicy, magii i niepokoju.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -326,19 +386,21 @@
       </div>
     </section>
 
-    <section class="section" id="wishlist">
+    <section class="section" id="wishlist" data-scroll-theme="gold">
       <div class="container">
         <div class="cta reveal">
           <div>
             <span class="eyebrow">Premiera wkrótce</span>
             <h3>Dodaj Wieżę Maga do wishlisty na Steam</h3>
             <p>
-              Najlepszy moment na kliknięcie wishlist to dosłownie teraz. Nie po obiedzie, nie jutro, nie „kiedyś”. Teraz.
+              Najlepszy moment na kliknięcie wishlist to dosłownie teraz. Nie po obiedzie, nie jutro, nie „kiedyś”.
+              Teraz.
             </p>
           </div>
 
           <div class="btns">
-            <a class="btn btn--primary" href="https://store.steampowered.com/" target="_blank" rel="noreferrer">Wishlist na Steam</a>
+            <a class="btn btn--primary" href="https://store.steampowered.com/" target="_blank" rel="noreferrer">Wishlist
+              na Steam</a>
             <a class="btn btn--ghost" href="#start">Wróć na górę</a>
           </div>
         </div>
@@ -358,7 +420,8 @@
     <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
       <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Zamknij podgląd">✕</button>
 
-      <button class="lightbox__arrow lightbox__arrow--left" id="lightboxPrev" type="button" aria-label="Poprzedni screen">←</button>
+      <button class="lightbox__arrow lightbox__arrow--left" id="lightboxPrev" type="button"
+        aria-label="Poprzedni screen">←</button>
 
       <div class="lightbox__content">
         <img id="lightboxImage" src="" alt="" />
@@ -368,7 +431,8 @@
         </div>
       </div>
 
-      <button class="lightbox__arrow lightbox__arrow--right" id="lightboxNext" type="button" aria-label="Następny screen">→</button>
+      <button class="lightbox__arrow lightbox__arrow--right" id="lightboxNext" type="button"
+        aria-label="Następny screen">→</button>
     </div>
   </div>
 
@@ -378,4 +442,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>
