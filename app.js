@@ -304,3 +304,95 @@ document.addEventListener('keydown', (event) => {
     showPrevImage();
   }
 });
+/* ===== PREMIUM SCROLL INDICATOR ===== */
+
+const scrollIndicator = document.querySelector('.scroll-indicator');
+const scrollIndicatorBar = document.getElementById('scrollIndicatorBar');
+const scrollIndicatorGlow = document.getElementById('scrollIndicatorGlow');
+const themedSections = Array.from(document.querySelectorAll('[data-scroll-theme]'));
+
+const scrollThemes = {
+  violet: {
+    accent1: 'rgba(131,96,255,0.95)',
+    accent2: 'rgba(177,140,255,0.75)',
+    glow: 'rgba(131,96,255,0.35)',
+  },
+  gold: {
+    accent1: 'rgba(227,149,243,0.95)',
+    accent2: 'rgba(255,214,143,0.72)',
+    glow: 'rgba(227,149,243,0.34)',
+  },
+  blue: {
+    accent1: 'rgba(94,166,255,0.95)',
+    accent2: 'rgba(128,209,255,0.72)',
+    glow: 'rgba(94,166,255,0.34)',
+  },
+  pink: {
+    accent1: 'rgba(255,107,138,0.95)',
+    accent2: 'rgba(255,164,196,0.76)',
+    glow: 'rgba(255,107,138,0.34)',
+  },
+  red: {
+    accent1: 'rgba(255,92,122,0.95)',
+    accent2: 'rgba(255,140,110,0.72)',
+    glow: 'rgba(255,92,122,0.34)',
+  },
+};
+
+let scrollIndicatorTimeout = null;
+
+const updateScrollIndicatorTheme = () => {
+  if (!themedSections.length) return;
+
+  const viewportMiddle = window.innerHeight * 0.42;
+  let activeSection = themedSections[0];
+
+  themedSections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+
+    if (rect.top <= viewportMiddle && rect.bottom >= viewportMiddle) {
+      activeSection = section;
+    }
+  });
+
+  const themeName = activeSection.dataset.scrollTheme || 'violet';
+  const theme = scrollThemes[themeName] || scrollThemes.violet;
+
+  document.documentElement.style.setProperty('--scroll-accent-1', theme.accent1);
+  document.documentElement.style.setProperty('--scroll-accent-2', theme.accent2);
+  document.documentElement.style.setProperty('--scroll-glow', theme.glow);
+};
+
+const updateScrollIndicatorProgress = () => {
+  if (!scrollIndicatorBar || !scrollIndicatorGlow || !scrollIndicator) return;
+
+  const scrollTop = window.scrollY || window.pageYOffset;
+  const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = documentHeight > 0 ? scrollTop / documentHeight : 0;
+  const indicatorHeight = scrollIndicator.clientHeight;
+  const barHeight = Math.max(42, indicatorHeight * progress);
+
+  scrollIndicatorBar.style.height = `${barHeight}px`;
+
+  const glowY = Math.max(0, barHeight - 24);
+  scrollIndicatorGlow.style.transform = `translate(-50%, ${glowY}px)`;
+
+  scrollIndicator.classList.add('is-scrolling');
+
+  window.clearTimeout(scrollIndicatorTimeout);
+  scrollIndicatorTimeout = window.setTimeout(() => {
+    scrollIndicator.classList.remove('is-scrolling');
+  }, 120);
+};
+
+const updatePremiumScrollUI = () => {
+  updateScrollIndicatorTheme();
+  updateScrollIndicatorProgress();
+};
+
+window.addEventListener('scroll', updatePremiumScrollUI, { passive: true });
+window.addEventListener('resize', updatePremiumScrollUI);
+window.addEventListener('load', updatePremiumScrollUI);
+document.addEventListener('DOMContentLoaded', updatePremiumScrollUI);
+
+updatePremiumScrollUI();
