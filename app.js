@@ -167,7 +167,7 @@ const fakePlay = document.getElementById('fakePlay');
 if (fakePlay) {
   fakePlay.addEventListener('click', () => {
     const video = document.createElement('video');
-    video.src = 'trailer4.mp4';
+    video.src = 'trailer5.mp4';
     video.volume = 0.03;
     video.controls = true;
     video.autoplay = true;
